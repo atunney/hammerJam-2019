@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PipeBoxBehaviour : MonoBehaviour {
 
-	public static List<PipeBoxBehaviour> pipeBoxes;
+	public static List<PipeBoxBehaviour> pipeBoxes = new List<PipeBoxBehaviour>();
 	public int selectedPipeIndex = 0;
+
 
 	void Awake() {
 		if (!pipeBoxes.Contains(this)) {
