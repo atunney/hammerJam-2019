@@ -29,7 +29,7 @@ public class ToiletOrigin : MonoBehaviour {
 
 			incoming.Enqueue(f);
 		}
-
+		incoming.Peek().SetActive(true);
 		Invoke("LaunchNext", timeBetweenFlushes * 2.5f);
 	}
 
@@ -41,8 +41,14 @@ public class ToiletOrigin : MonoBehaviour {
 	}
 
 	public void LaunchNext() {
-		incoming.Dequeue().SetActive(true);
+
+		GameObject nextObject = incoming.Dequeue();
+		nextObject.GetComponent<Flushable>().isActive = true;		
+
 		Invoke("LaunchNext", timeBetweenFlushes);
+
+		incoming.Peek().SetActive(true);
+
 	}
 
 

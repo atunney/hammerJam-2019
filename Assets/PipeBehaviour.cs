@@ -46,10 +46,6 @@ public class PipeBehaviour : MonoBehaviour {
 		if (col.gameObject.GetComponent<Flushable>() != null) {
 			Vector3 euler = Vector3.zero;
 
-			if (col.gameObject.transform.eulerAngles.z < -90 || col.gameObject.transform.eulerAngles.z > 90) {
-				euler.z += 180;
-			}
-
 			euler.z += angle;
 			euler.z +=  transform.eulerAngles.z;
 			col.transform.eulerAngles = euler;
