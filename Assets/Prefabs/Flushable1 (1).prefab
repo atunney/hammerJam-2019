@@ -94,7 +94,7 @@ MonoBehaviour:
   isGood: 1
   isActive: 0
   currentDirection: 1
-  movementSpeed: 5
+  movementSpeed: 3
 --- !u!212 &212211488992104384
 SpriteRenderer:
   m_ObjectHideFlags: 1
