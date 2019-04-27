@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public static Score score;
+    public static int scoreCounter = 0;
+    public Text scoreKeeper;
+    void Awake() {
+        score = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update () {
+        scoreKeeper.text = ("Score: " + Score.scoreCounter); //Showing the Score on the Canvas
+    }
+
+    public static void AddScore(int addToScore) {
+        Score.scoreCounter += addToScore;
     }
 }
