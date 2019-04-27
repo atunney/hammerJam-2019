@@ -8,11 +8,18 @@ public class Timer : MonoBehaviour
 {
 
   public int timeLeft = 60; //Seconds Overall
+  public static Timer timer;
   public Text TimerLabel; //UI Text Object
-  void Start () {
+  void Awake () {
+    timer = this;
     StartCoroutine("LoseTime");
     Time.timeScale = 1; //Just making sure that the timeScale is right
   }
+
+  public static void Penalty(int lost) {
+    timer.timeLeft -= lost;
+  }
+
   void Update () {
     TimerLabel.text = ("" + timeLeft); //Showing the Score on the Canvas
   }

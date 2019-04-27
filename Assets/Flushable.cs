@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Flushable : MonoBehaviour
 {
+    public int time = 50;
+    public int scoreValue = 50;
+    public bool isGood;
     bool isActive = true;
-    float movementSpeed = 2f;
+    float movementSpeed = 5f;
     Vector2 upRight = new Vector2(1.0f, 1.0f);
     Vector2 downRight = new Vector2(1.0f, -1.0f);
 
