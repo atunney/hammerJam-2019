@@ -16,12 +16,17 @@ public class PipeBoxBehaviour : MonoBehaviour {
 
 	private Vector2[] pieceLocations = new Vector2[4];
 
+	public static GameObject _select;
+	public GameObject selectCircle;
+
+
 	public Queue<PipeBehaviour> pieces = new Queue<PipeBehaviour>();
 
-	PipeBehaviour currentPipe;
-
-
 	void Awake() {
+
+		if (selectCircle != null) {
+			_select = selectCircle;
+		}
 
 		pieceLocations[0] = new Vector2(transform.position.x, transform.position.y + 3);
 		pieceLocations[1] = new Vector2(transform.position.x, transform.position.y + 1);
@@ -57,13 +62,8 @@ public class PipeBoxBehaviour : MonoBehaviour {
 		if (acceptingInput) {
 			
 			if (Input.GetButtonDown("PipeDrop") && pipeBoxes[selectedPipeIndex] == this) {
-
-				Debug.Log("Pipe box: " + selectedPipeIndex + " drop");
-
 				pipeBoxes[selectedPipeIndex].pieces.Peek().Drop();
-
 				acceptingInput = false;
-
 				Invoke("MovePieces", moveDelay);
 
 			} else if (Input.GetButtonDown("PipeLeft")) {
@@ -79,6 +79,8 @@ public class PipeBoxBehaviour : MonoBehaviour {
 				acceptingInput = false;
 				Invoke("EnableInput", inputDelay);
 			}
+
+			_select.transform.position = new Vector3(-1.9f + (1.9f * selectedPipeIndex), 4.5f, 0);
 		}
 	}
 
@@ -109,21 +111,21 @@ public class PipeBoxBehaviour : MonoBehaviour {
 		PipeBehaviour dropped = pieces.Dequeue();
 		dropped.transform.rotation = Quaternion.identity;
 		dropped.transform.position = pieceLocations[0];
+		dropped.RandomRotation();
 
 		for (int i = pipeBoxes.Count; i > 0; i--) {					
 			PipeBehaviour iPiece = pieces.Dequeue();
-			iPiece.transform.rotation = Quaternion.identity;
+			//iPiece.transform.rotation = Quaternion.identity;
 			iPiece.transform.position = pieceLocations[i];
 			
 			iPiece.Freeze();
 			pieces.Enqueue(iPiece);
-			iPiece.RandomRotation();
 		}
 		
 		
 		dropped.Freeze();
 		pieces.Enqueue(dropped);
-		dropped.RandomRotation();
+		//dropped.RandomRotation();
 
 		EnableInput();
 	}

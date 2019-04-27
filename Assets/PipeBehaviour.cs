@@ -7,7 +7,9 @@ public class PipeBehaviour : MonoBehaviour {
 	public bool dropped = false;	
 	Rigidbody2D rb2D;
 
-	float fallSpeed = 1f;
+	float[] rotations = new float[4] {
+		0, 90, 180, 270
+	};
 
 	void Awake() {
 		rb2D = GetComponent<Rigidbody2D>();
@@ -27,8 +29,10 @@ public class PipeBehaviour : MonoBehaviour {
 	}
 
 	public void RandomRotation() {
+		Vector3 euler = transform.eulerAngles;
 
-
+	    euler.z = rotations[Random.Range(0, 3)];
+     	transform.eulerAngles = euler;
 	}
 
 	// void Update () {
