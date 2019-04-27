@@ -20,6 +20,7 @@ public class PipeBoxBehaviour : MonoBehaviour {
 
 	PipeBehaviour currentPipe;
 
+
 	void Awake() {
 
 		pieceLocations[0] = new Vector2(transform.position.x, transform.position.y + 3);
