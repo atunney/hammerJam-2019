@@ -7,6 +7,8 @@ public class PipeBehaviour : MonoBehaviour {
 	public bool dropped = false;	
 	Rigidbody2D rb2D;
 
+	public float angle = 0; //should be 0, 45 or 90
+
 	float[] rotations = new float[4] {
 		0, 90, 180, 270
 	};
@@ -31,8 +33,27 @@ public class PipeBehaviour : MonoBehaviour {
 	public void RandomRotation() {
 		Vector3 euler = transform.eulerAngles;
 
-	    euler.z = rotations[Random.Range(0, 3)];
+		if (angle != 90) {
+		    euler.z = rotations[Random.Range(0, 3)];
+		} else {
+			euler.z = rotations[Random.Range(0, 1)];
+		}
+
      	transform.eulerAngles = euler;
+	}
+
+	public void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.GetComponent<Flushable>() != null) {
+			Vector3 euler = Vector3.zero;
+
+			euler.z += angle;
+			euler.z +=  transform.eulerAngles.z;
+			col.transform.eulerAngles = euler;
+
+
+		}
+
+
 	}
 
 	// void Update () {
