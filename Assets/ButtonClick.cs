@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonClick : MonoBehaviour
 {
     public void RestartGame() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
     }
 }
