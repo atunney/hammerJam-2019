@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
   }
 
   void Update () {
-    TimerLabel.text = ("" + timeLeft); //Showing the Score on the Canvas
+    TimerLabel.text = ("Time Left: " + timeLeft); //Showing the Score on the Canvas
   }
   //Simple Coroutine
   IEnumerator LoseTime()

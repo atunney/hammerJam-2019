@@ -13,7 +13,7 @@ public class Score : MonoBehaviour
     }
 
     void Update () {
-        scoreKeeper.text = ("Score: " + Score.scoreCounter); //Showing the Score on the Canvas
+        scoreKeeper.text = ("Points: " + Score.scoreCounter); //Showing the Score on the Canvas
     }
 
     public static void AddScore(int addToScore) {

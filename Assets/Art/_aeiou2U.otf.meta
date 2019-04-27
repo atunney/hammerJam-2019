@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f77cddf655166472ca8c55bd8d729326
+guid: 911a3e64b1270fa4f8d06ba87ddd61ae
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: _a e i o u
+  fontName: BASIC
   fontNames:
-  - _a e i o u
+  - BASIC
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
