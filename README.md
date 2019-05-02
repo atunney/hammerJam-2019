@@ -1,4 +1,4 @@
-# hammerJam-2019 -- Poop Pipes
+# hammerJam-2019 -- Poop Dreams
 ## Submission for Hammer Jam 2019.
 
 Hammer Jam ran from 8am to 8pm on Saturday, April 27th, 2019. About 13 teams competed with 11 games ready for presentation. The theme was '[Own Your Throne](https://www.hamilton.ca/home-property-and-development/water-sewer/flushables-own-your-throne)' and games had to make use of provided characters from the marketing campaign.
